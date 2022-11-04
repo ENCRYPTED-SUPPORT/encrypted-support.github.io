@@ -6,6 +6,9 @@
   padding: 0;
   box-sizing: border-box;
 }
+html, body {
+	scroll-padding-top: 90px;
+}
 html {
   scroll-behavior: smooth;
 }
@@ -24,7 +27,7 @@ body {
 }
 a
 {
-  color: initial;
+  color: #0069d2;
 }
 q
 {
@@ -40,6 +43,11 @@ h6 {
   margin: 0;
   padding: 0;
   text-rendering: optimizeLegibility;
+}
+p
+{
+  margin: 15px 0;
+  font-size: 16px;
 }
 p strong
 {
@@ -102,9 +110,14 @@ input {
 .title-1 {
   font-weight: 600;
 }
-.title-1 span
+.title-1 span,
+.title-2 span
 {
   color: #e21d1d;
+}
+.title-2 {
+  margin-top: 11px;
+  font-size: 23px;
 }
 .display__block {
   display: block;
@@ -788,9 +801,11 @@ input {
 .primary-navigation-1 {
   min-height: 50px;
   width: 100%;
-  position: absolute;
-  top: 20px;
+  position: fixed;
+  top: 0;
   z-index: 2;
+  padding: 20px 0;
+  background-color: rgba(0, 0, 0, 0.9);
 }
 .primary-navigation-1 .flex-1 {
   display: flex;
@@ -808,6 +823,12 @@ input {
 .primary-navigation-1 .logo-container .logo {
   width: 120px;
 }
+.primary-navigation-1 .nav-container > i {
+  display: none;
+  color: white;
+  font-size: 40px;
+  height: 55px;
+}
 .primary-navigation-1 .nav-container ul {
   display: flex;
   align-items: center;
@@ -824,6 +845,8 @@ input {
   padding-left: 15px;
   padding-right: 15px;
   transition: all 100ms;
+  width: 100%;
+  display: inline-block;
 }
 .primary-navigation-1 .nav-container ul li a:hover
 {
@@ -1093,7 +1116,7 @@ input {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  min-height: 80vh;
+  min-height: 60vh;
 }
 .info-section-1__left {
   flex-basis: 48%;
@@ -1253,16 +1276,22 @@ input {
 {
   color: #e21d1d;
 }
-.grid-points-section .grid {
-  display: flex;
-  justify-content: flex-start;
-  align-items: flex-start;
+.grid-points-section .grid > * {
+  display: inline-block;
 }
 .grid-points-section .grid__count {
   font-weight: 600;
   font-size: 25px;
   margin: 0px;
   padding-right: 20px;
+  width: 50px;
+  text-align: center;
+  vertical-align: top;
+  position: relative;
+  top: -4px;
+}
+.grid-points-section .grid > div {
+  width: calc(100% - 60px)
 }
 .grid-points-section .grid__heading {
   font-weight: 600;
@@ -1316,11 +1345,11 @@ input {
 }
 .border-top-primary
 {
-  border-top: 10px solid rgba(9, 75, 172, 0.1);
+  border-top: 10px solid #d41d1d;
 }
 .border-btm-primary
 {
-  border-bottom: 10px solid rgba(9, 75, 172, 0.1);
+  border-bottom: 10px solid #d41d1d;
 }
 .side-screen
 {
@@ -1462,24 +1491,22 @@ input {
     width: 100%;
     padding: 20px;
     position: absolute;
-    top: 55px;
+    top: 80px;
     right: 20px;
     visibility: hidden;
     opacity: 0;
     pointer-events: none;
+    border: 1px solid black;
   }
-  .primary-navigation-1 .nav-container.active ul {
-    background-color: #fff;
-    border-radius: 3px;
-    max-width: 400px;
-    width: 100%;
-    padding: 20px;
-    position: absolute;
-    top: 55px;
-    right: 20px;
+  .primary-navigation-1 .nav-container > i {
+    display: block;
+  }
+  .primary-navigation-1 .nav-container > i:hover + ul,
+  .primary-navigation-1 .nav-container ul:hover
+  {
+    pointer-events: initial;
     visibility: visible;
     opacity: 1;
-    pointer-events: initial;
   }
   .primary-navigation-1 .nav-container ul li {
     padding-top: 7px;
@@ -1490,6 +1517,9 @@ input {
   }
   .primary-navigation-1 .nav-container ul li a {
     color: rgb(51, 51, 51);
+  }
+  .primary-navigation-1 .nav-container ul li a:hover {
+    background: #eee;
   }
 }
 @media (max-width: 960px) {
